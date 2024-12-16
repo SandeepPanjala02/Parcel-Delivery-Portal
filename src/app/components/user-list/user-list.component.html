@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center align-items-center vh-50">
+<div class="m-5">
+    <table class="table  table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>USER NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
+                <th>ROLE</th>
+                <th>OPTIONS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of user">
+
+                <td>{{ user.userId}}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.role}}</td>
+                <td>
+                    <div class="d-flex">
+                    <button class="btn btn-danger me-2"
+                    (click)="removeUser(user.userId)"
+                      aria-label="Delte user">
+                         Delete
+                        </button>
+
+                    <button 
+                     class="btn btn-success"
+                      (click)="showUserEdit(user.userId)"
+                      aria-label="Edit User">
+                        Edit
+                    </button>
+                    </div>
+                </td>
+                
+            </tr>
+            <tr *ngIf="!user || user.length==0">
+                <td colspan="6" class="text-center">
+                    No data available 
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+</div>

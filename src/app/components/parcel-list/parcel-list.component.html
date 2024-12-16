@@ -1,0 +1,50 @@
+
+<div class="m-5">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>PARCEL ID</th>
+                <th>SENDER NAME</th>
+                <th>RECEIVER NAME</th>
+                <th>PICKUP ADDRESS</th>
+                <th>DELIVERY ADDRESS</th>
+                <th>STATUS</th>
+                <th>OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let parcel of parcels">
+
+                <td>{{parcel.parcelId}}</td>
+                <td>{{parcel.senderName}}</td>
+                <td>{{parcel.receiverName}}</td>
+                <td>{{parcel.pickupAddress}}</td>
+                <td>{{parcel.deliveryAddress}}</td>
+                <td>{{parcel.status}}</td>
+                <td>
+                    <div class="d-flex">
+                        <button class="btn btn-danger me-2" (click)="removeParcel(parcel.parcelId)"
+                            aria-label="Delete Parcel">
+                            Delete
+                        </button>
+
+                        <button class="btn btn-success" (click)="showParcelEdit(parcel.parcelId)"
+                            aria-label="Edit Parcel">
+                            Edit
+                        </button>
+                    </div>
+                </td>
+
+
+            </tr>
+            <tr *ngIf="!parcels || parcels.length ==0">
+                <td colspan="6" clas="text-center">
+                    No data available
+                </td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

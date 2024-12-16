@@ -1,0 +1,82 @@
+<div class="container m-5">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <form [formGroup]="parcelFormGroup" (ngSubmit)="onSubmit()">
+          <div formGroupName="parcel">
+            <h2>Add New Parcel Details</h2>
+            <hr />
+            
+            <!-- Sender Name -->
+            <div class="my-3">
+              <label class="form-label">Sender Name:</label>
+              <input type="text" class="form-control" formControlName="senderName" />
+              <div *ngIf="senderName?.invalid && (senderName?.touched || senderName?.dirty)" class="alert alert-danger">
+                <div *ngIf="senderName?.errors?.['required']">Sender Name is required</div>
+              </div>
+            </div>
+            <!-- Sender Name ended -->
+  
+            <!-- Receiver Name -->
+            <div class="my-3">
+              <label class="form-label">Receiver Name:</label>
+              <input type="text" class="form-control" formControlName="receiverName" />
+              <div *ngIf="receiverName?.invalid && (receiverName?.touched || receiverName?.dirty)" class="alert alert-danger">
+                <div *ngIf="receiverName?.errors?.['required']">Receiver Name is required</div>
+              </div>
+            </div>
+            <!-- Receiver Name ended -->
+  
+            <!-- Pickup Address -->
+            <div class="my-3">
+              <label class="form-label">Pickup Address:</label>
+              <input type="text" class="form-control" formControlName="pickupAddress" />
+              <div *ngIf="pickupAddress?.invalid && (pickupAddress?.touched || pickupAddress?.dirty)" class="alert alert-danger">
+                <div *ngIf="pickupAddress?.errors?.['required']">Pickup Address is required</div>
+              </div>
+            </div>
+            <!-- Pickup Address ended -->
+  
+            <!-- Receiver Address -->
+            <div class="my-3">
+              <label class="form-label">Delivery Address:</label>
+              <input type="text" class="form-control" formControlName="deliveryAddress" />
+              <div *ngIf="deliveryAddress?.invalid && (deliveryAddress?.touched || deliveryAddress?.dirty)" class="alert alert-danger">
+                <div *ngIf="deliveryAddress?.errors?.['required']">Delivery Address is required</div>
+              </div>
+            </div>
+            <!-- Delivery Address ended -->
+  
+            <!-- Status -->
+            <div class="my-3">
+              <label class="form-label">Status:</label>
+              <input type="text" class="form-control" formControlName="status" />
+              <div *ngIf="status?.invalid && (status?.touched || status?.dirty)" class="alert alert-danger">
+                <div *ngIf="status?.errors?.['required']">Status is required</div>
+              </div>
+            </div>
+            <!-- Status ended -->
+  
+            <!-- User -->
+            <div class="my-3">
+              <label class="form-label">User Id:</label>
+              <select formControlName="user" class="form-control">
+                <option *ngFor="let userOption of userList" [ngValue]="userOption">
+                  {{ userOption.userId }}
+                </option>
+              </select>
+              <div *ngIf="user?.invalid && (user?.touched || user?.dirty)" class="alert alert-danger">
+                <div *ngIf="user?.errors?.['required']">User is required</div>
+              </div>
+            </div>
+            <!-- User ended -->
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <input type="submit" value="Add New Parcel" class="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
